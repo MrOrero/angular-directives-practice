@@ -3,8 +3,28 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styles: [
+    `
+      .counter {
+        color: white;
+        background-color: blue;
+      }
+    `,
+  ],
 })
 export class AppComponent {
-  title = 'directives-practice';
+  displayStatus = true;
+  clickLogs = [];
+  timeStamp = Date.now().toString();
+  arrayCounter = 0;
+
+  changeDisplayStatus() {
+    this.displayStatus = !this.displayStatus;
+  }
+
+  logClick() {
+    console.log(this.timeStamp);
+    this.clickLogs.push(this.timeStamp);
+    this.arrayCounter += 1;
+  }
 }
